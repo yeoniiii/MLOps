@@ -11,4 +11,29 @@ SQLite3을 이용해서 DB로부터 데이터를 읽어오는 학습코드(train
     1. `csv_to_db.py` --> train.csv, test.csv파일을 data.db 파일 내 train, test 테이블로 변환하는 코드
     `train.py` --> 모델을 생성하는 코드 (해당 코드 실행시 trans.pkl, model.pkl 생성)
     2. `inference.py` --> 모델을 로드하고 추론결과를 적재하는 코드 (data.db내 predict 테이블을 화면에 출력했을 때 test데이터의 3, 5, 12번째 row의 추론결과가 출력되어야함)
-    3. `database.py` --> db파일 내 테이블을 생성하는 함수, db파일에서 특정 row의 데이터를 불러오는 함수가 포함된 파일. (다른 코드들에서 import database로 호출되어야함)
+    3. `database.py` --> db파일 내 테이블을 생성하는 함수, db파일에서 특정 row의 데이터를 불러오는 함수가 포함된 파일. (다른 코드들에서 import database로 호출되어야 함)
+ 
+
+
+```
+!python3 csv_to_db.py
+!python3 train.py
+!python3 inference.py
+```
+```
+import sqlite3
+
+db_name = "data.db"
+conn = sqlite3.connect(db_name)
+c = conn.cursor()
+
+c.execute("SELECT * FROM predict")
+
+items = c.fetchall()
+
+for item in items:
+    print(item)
+
+conn.commit()
+conn.close()
+```
