@@ -14,7 +14,7 @@ SQLite3을 이용해서 DB로부터 데이터를 읽어오는 학습코드(train
     3. `database.py` --> db파일 내 테이블을 생성하는 함수, db파일에서 특정 row의 데이터를 불러오는 함수가 포함된 파일. (다른 코드들에서 import database로 호출되어야 함)
  
 
-
+---
 ```
 !python3 csv_to_db.py
 !python3 train.py
