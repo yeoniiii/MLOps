@@ -1,44 +1,31 @@
 import sqlite3
 import pandas as pd
+import database
 
-db_name = "/data/steel.db"
+db_name = "./data/steel.db"
 conn = sqlite3.connect(db_name)
 c = conn.cursor()
 
-### create train table into DB ###
-train = pd.read_csv("/data/train.csv")
-train.to_sql("train", conn, index=False)
+# 데이터 로드
+train_df = pd.read_csv("./data/train.csv")
+test_df = pd.read_csv("./data/test.csv")
+col_nm = ', '.join(train_df.columns)
 
-### create test table into DB ###
-test = pd.read_csv("/data/test.csv")
-test.to_sql("test", conn, index=False)
+# 테이블 생성
+database.create_table('train', col_nm)
+database.create_table('test', col_nm)
+database.create_table('predict', col_nm+', pred')
 
-### create predict table ###
-c.execute("""CREATE TABLE predict(predict TEXT)""")
+# 테이블에 csv 파일 적재
+train_df.to_sql("train", conn, index=False, if_exists='replace')
+test_df.to_sql("test", conn, index=False, if_exists='replace')
+
 conn.commit()
 
-
-print("\n\n train table...")
-
-c.execute("SELECT * FROM train")
-items = c.fetchall()
-for item in items:
-    print(item)
-
-print("\n\n test table...")    
-    
-c.execute("SELECT * FROM test")
-items = c.fetchall()
-for item in items:
-    print(item)
-    
-print("\n\n predict table...")
-
-c.execute("SELECT * FROM predict")
-items = c.fetchall()
-for item in items:
-    print(item)
-
+# 테이블 확인
+database.show_table('train', 3)
+database.show_table('test', 3)
+database.show_table('predict', 3)
     
 ## close our connection
 conn.close()

@@ -12,4 +12,6 @@ def inference(dat):
 
     ## make prediction for testset
     pred = model.predict(test_x)
-    return pred
+    dat['predict'] = pred
+
+    return dat
