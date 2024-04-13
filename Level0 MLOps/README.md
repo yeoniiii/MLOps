@@ -1,12 +1,12 @@
 # Level0 MLOps
 1. **Train and Inference**
-    1. `train_test`
-2. **Sqlite3**
-   1. `sqlite3`
+   - `train_test`
+3. **Sqlite3**
+   - `sqlite3`
 4. **Dash**
-    1. `dash_basic`
-    2. `apps`
+   - `dash_basic`
+   - `apps`
 5. **Inference with Dash**
-    1. `automatic_refresh`
-    2. `realtime_per_click`
-    3. `refresh_per_click`
+   - `realtime_per_click`; 클릭 시 실시간 운영
+   - `automatic_refresh`; 초 단위 자동적재, 클릭 시 모니터링
+   - `refresh_per_click`; 초 단위 실시간 운영
