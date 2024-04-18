@@ -1,4 +1,4 @@
-# Level0 MLOps
+# Level 0 MLOps
 1. **Train and Inference**
    - `train_test`
 3. **Sqlite3**
