@@ -2,3 +2,7 @@
 1. **Pipeline basic**
    - `Pipeline`
    - `ColumnTransformer`
+2. **Pipeline and ColumnTransformer** (PL and CT)
+   - `Pipeline and CT`
+   - `User defined class`
+   - `Basic class`
