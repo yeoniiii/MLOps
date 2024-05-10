@@ -6,3 +6,7 @@
    - `Pipeline and CT`
    - `User defined class`
    - `Basic class`
+3. **Feature Importance**
+   - `feature_importance`
+   - `permutation importance`
+   - `permutation importance in pipeline`
